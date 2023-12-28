@@ -9,6 +9,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { mainNavbarItems } from "../Consts/NavbarItems";
 import { navbarStyles } from "./Styles";
+import ReorderIcon from '@mui/icons-material/Reorder';
+import { Tooltip } from "@mui/material";
 
 
 function Navbar(){
@@ -53,7 +55,11 @@ function Navbar(){
         <div>
           {['left'].map((anchor) => (
             <React.Fragment key={anchor}>
-              <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+              <Tooltip title="Click to show Navigation Drawer">
+                <Button onClick={toggleDrawer(anchor, true)}>
+                  <ReorderIcon />
+                </Button>
+              </Tooltip>
               <Drawer
                 sx={navbarStyles.drawer}
                 anchor={anchor}
