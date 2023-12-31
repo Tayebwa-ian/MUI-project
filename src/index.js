@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Authentication from './Pages/Authentication/Authentication';
 import Database from './Pages/Database/Database';
+import Functions from './Pages/Functions/Functions';
+import Storage from './Pages/Storage/Storage';
+import MachineLearning from './Pages/Machine Learning/MachineLearning'
+import Hosting from './Pages/Hosting/Hosting'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -25,6 +29,22 @@ const router = createBrowserRouter(
         {
           path: "Database",
           element: <Database />
+        },
+        {
+          path: "Storage",
+          element: <Storage />
+        },
+        {
+          path: "Functions",
+          element: <Functions />
+        },
+        {
+          path: "MachineLearning",
+          element: <MachineLearning />
+        },
+        {
+          path: "Hosting",
+          element: <Hosting />
         }
       ]
     },

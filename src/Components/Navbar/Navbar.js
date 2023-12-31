@@ -10,7 +10,8 @@ import ListItemText from '@mui/material/ListItemText';
 import { mainNavbarItems } from "../Consts/NavbarItems";
 import { navbarStyles } from "./Styles";
 import ReorderIcon from '@mui/icons-material/Reorder';
-import { Tooltip } from "@mui/material";
+import { Divider, Tooltip } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
 function Navbar(){
@@ -25,6 +26,8 @@ function Navbar(){
     
         setState({ ...state, [anchor]: open });
       };
+
+      const navigate = useNavigate();
     
       const list = (anchor) => (
         <Box
@@ -34,7 +37,11 @@ function Navbar(){
         >
           <List>
             {mainNavbarItems.map((item) => (
-              <ListItem key={item.id} disablePadding>
+              <ListItem 
+              key={item.id} 
+              disablePadding
+              onClick={()=>navigate(item.route)}
+              >
                 <ListItemButton>
                   <ListItemIcon
                   sx={navbarStyles.icons}
@@ -52,12 +59,12 @@ function Navbar(){
       );
     
       return (
-        <div>
+        <Box>
           {['left'].map((anchor) => (
             <React.Fragment key={anchor}>
               <Tooltip title="Click to show Navigation Drawer">
                 <Button onClick={toggleDrawer(anchor, true)}>
-                  <ReorderIcon />
+                  <ReorderIcon fontSize="large" />
                 </Button>
               </Tooltip>
               <Drawer
@@ -66,11 +73,13 @@ function Navbar(){
                 open={state[anchor]}
                 onClose={toggleDrawer(anchor, false)}
               >
+                <Box sx={{marginTop: 5}}/>
                 {list(anchor)}
+                <Divider sx={{bgcolor: "white", marginTop: 5}}/>
               </Drawer>
             </React.Fragment>
           ))}
-        </div>
+        </Box>
       );
 }
 

@@ -10,7 +10,7 @@ const Functions = ()=>{
         justifyContent="center"
         alignItems="center"
         >
-            <Grid item xs={8}>
+            <Grid item xs={8} lg={12}>
                 <div>
                     This is the Functions Page
                 </div>

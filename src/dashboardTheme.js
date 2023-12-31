@@ -1,4 +1,4 @@
-import { lime } from '@mui/material/colors';
+import { green, grey, lightBlue, lime, red, yellow } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 export const dashboardTheme = createTheme({
@@ -12,7 +12,12 @@ export const dashboardTheme = createTheme({
       },
     },
     palette: {
-        primary: lime
+        primary: lime,
+        secondary: grey,
+        error: red,
+        warning: yellow,
+        info: lightBlue,
+        success: green,
     },
     typography: {
       h1: {

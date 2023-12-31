@@ -10,7 +10,7 @@ const Hosting = ()=>{
         justifyContent="center"
         alignItems="center"
         >
-            <Grid item xs={8}>
+            <Grid item xs={8} lg={12}>
                 <div>
                     This is Hosting Page
                 </div>

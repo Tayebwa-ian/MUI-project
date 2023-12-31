@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from "./Components/Navbar/Navbar"
 import { Outlet } from "react-router-dom";
 import Grid from '@mui/material/Grid';
 import Header from './Components/Header/Header';
 import { useLocation } from 'react-router-dom'; 
+import { Box } from '@mui/material';
 
 function App() {
   const [title, setTitle] = useState(null);
@@ -14,11 +14,19 @@ function App() {
     setTitle(parsedTitle);
   }, [location]);
 
+  const bodyStyles = {
+    content: {
+      margin: '20px',
+      alignItems: 'center',
+    },
+  }
+
   return (
     <Grid container>
-      <Navbar />
       <Header title={title} />
-      <Outlet />
+      <Box sx={bodyStyles.content}>
+        <Outlet />
+      </Box>
     </Grid>
   );
 }
